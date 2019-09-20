@@ -12,6 +12,7 @@
 		4C6743FC2333CDD900532086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C6743FB2333CDD900532086 /* Assets.xcassets */; };
 		4C6743FF2333CDD900532086 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6743FD2333CDD900532086 /* Main.storyboard */; };
 		4C6744082333D1AC00532086 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6744072333D1AC00532086 /* QuotesViewController.swift */; };
+		4CF6BADA23346292003E94AC /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF6BAD923346292003E94AC /* Quote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4C6744002333CDD900532086 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C6744012333CDD900532086 /* Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monitor.entitlements; sourceTree = "<group>"; };
 		4C6744072333D1AC00532086 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuotesViewController.swift; path = Monitor/QuotesViewController.swift; sourceTree = "<group>"; };
+		4CF6BAD923346292003E94AC /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Quote.swift; path = Monitor/Quote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 		4C6743EB2333CDD800532086 = {
 			isa = PBXGroup;
 			children = (
+				4CF6BAD923346292003E94AC /* Quote.swift */,
 				4C6744072333D1AC00532086 /* QuotesViewController.swift */,
 				4C6743F62333CDD800532086 /* Monitor */,
 				4C6743F52333CDD800532086 /* Products */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF6BADA23346292003E94AC /* Quote.swift in Sources */,
 				4C6743FA2333CDD800532086 /* ViewController.swift in Sources */,
 				4C6744082333D1AC00532086 /* QuotesViewController.swift in Sources */,
 				4C6743F82333CDD800532086 /* AppDelegate.swift in Sources */,
