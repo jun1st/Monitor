@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C3D871F23367768009FD11C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3D871E23367768009FD11C /* Cocoa.framework */; };
+		4C3D87212336776F009FD11C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3D87202336776F009FD11C /* Carbon.framework */; };
+		4C3D872323367777009FD11C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3D872223367777009FD11C /* SystemConfiguration.framework */; };
+		4C3D87252336777E009FD11C /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3D87242336777E009FD11C /* ApplicationServices.framework */; };
+		4C3D872723367788009FD11C /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3D872623367788009FD11C /* PreferencePanes.framework */; };
+		4C3D872923367790009FD11C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3D872823367790009FD11C /* IOKit.framework */; };
+		4C3D872B23367799009FD11C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C3D872A23367799009FD11C /* Foundation.framework */; };
+		4C3D872F233678B1009FD11C /* MonitorNetConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D872E233678B1009FD11C /* MonitorNetConfig.m */; };
+		4C3D87342337B1E9009FD11C /* MonitorNetStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D87332337B1E9009FD11C /* MonitorNetStats.m */; };
 		4C6743F82333CDD800532086 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6743F72333CDD800532086 /* AppDelegate.swift */; };
 		4C6743FA2333CDD800532086 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6743F92333CDD800532086 /* ViewController.swift */; };
 		4C6743FC2333CDD900532086 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C6743FB2333CDD900532086 /* Assets.xcassets */; };
@@ -16,6 +25,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C3D871E23367768009FD11C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4C3D87202336776F009FD11C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		4C3D872223367777009FD11C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4C3D87242336777E009FD11C /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		4C3D872623367788009FD11C /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = System/Library/Frameworks/PreferencePanes.framework; sourceTree = SDKROOT; };
+		4C3D872823367790009FD11C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		4C3D872A23367799009FD11C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C3D872C233678B1009FD11C /* Monitor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Monitor-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C3D872D233678B1009FD11C /* MonitorNetConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorNetConfig.h; sourceTree = "<group>"; };
+		4C3D872E233678B1009FD11C /* MonitorNetConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorNetConfig.m; sourceTree = "<group>"; };
+		4C3D87302336796D009FD11C /* MonitorNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorNet.h; sourceTree = "<group>"; };
+		4C3D87322337B1E9009FD11C /* MonitorNetStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonitorNetStats.h; sourceTree = "<group>"; };
+		4C3D87332337B1E9009FD11C /* MonitorNetStats.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorNetStats.m; sourceTree = "<group>"; };
 		4C6743F42333CDD800532086 /* Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6743F72333CDD800532086 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C6743F92333CDD800532086 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,12 +54,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3D872B23367799009FD11C /* Foundation.framework in Frameworks */,
+				4C3D872923367790009FD11C /* IOKit.framework in Frameworks */,
+				4C3D872723367788009FD11C /* PreferencePanes.framework in Frameworks */,
+				4C3D87252336777E009FD11C /* ApplicationServices.framework in Frameworks */,
+				4C3D872323367777009FD11C /* SystemConfiguration.framework in Frameworks */,
+				4C3D87212336776F009FD11C /* Carbon.framework in Frameworks */,
+				4C3D871F23367768009FD11C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C3D871D23367768009FD11C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D872A23367799009FD11C /* Foundation.framework */,
+				4C3D872823367790009FD11C /* IOKit.framework */,
+				4C3D872623367788009FD11C /* PreferencePanes.framework */,
+				4C3D87242336777E009FD11C /* ApplicationServices.framework */,
+				4C3D872223367777009FD11C /* SystemConfiguration.framework */,
+				4C3D87202336776F009FD11C /* Carbon.framework */,
+				4C3D871E23367768009FD11C /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4C6743EB2333CDD800532086 = {
 			isa = PBXGroup;
 			children = (
@@ -45,6 +88,7 @@
 				4C6744072333D1AC00532086 /* QuotesViewController.swift */,
 				4C6743F62333CDD800532086 /* Monitor */,
 				4C6743F52333CDD800532086 /* Products */,
+				4C3D871D23367768009FD11C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +109,12 @@
 				4C6743FD2333CDD900532086 /* Main.storyboard */,
 				4C6744002333CDD900532086 /* Info.plist */,
 				4C6744012333CDD900532086 /* Monitor.entitlements */,
+				4C3D872D233678B1009FD11C /* MonitorNetConfig.h */,
+				4C3D872E233678B1009FD11C /* MonitorNetConfig.m */,
+				4C3D872C233678B1009FD11C /* Monitor-Bridging-Header.h */,
+				4C3D87302336796D009FD11C /* MonitorNet.h */,
+				4C3D87322337B1E9009FD11C /* MonitorNetStats.h */,
+				4C3D87332337B1E9009FD11C /* MonitorNetStats.m */,
 			);
 			path = Monitor;
 			sourceTree = "<group>";
@@ -101,6 +151,7 @@
 				TargetAttributes = {
 					4C6743F32333CDD800532086 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -139,6 +190,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3D87342337B1E9009FD11C /* MonitorNetStats.m in Sources */,
+				4C3D872F233678B1009FD11C /* MonitorNetConfig.m in Sources */,
 				4CF6BADA23346292003E94AC /* Quote.swift in Sources */,
 				4C6743FA2333CDD800532086 /* ViewController.swift in Sources */,
 				4C6744082333D1AC00532086 /* QuotesViewController.swift in Sources */,
@@ -279,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Monitor/Monitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -289,6 +343,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fengqijun.Monitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Monitor/Monitor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -297,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Monitor/Monitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -307,6 +364,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fengqijun.Monitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Monitor/Monitor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
