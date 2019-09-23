@@ -26,15 +26,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         if let button = statusItem.button {
-            button.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+//            button.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
             button.action = #selector(togglePopover(_:))
         }
         
         popover.contentViewController = QuotesViewController.freshController()
         
-        updateTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateSpeed), userInfo: nil, repeats: true)
+//        updateTimer = Timer.init(timeInterval: <#T##TimeInterval#>, target: <#T##Any#>, selector: <#T##Selector#>, userInfo: <#T##Any?#>, repeats: <#T##Bool#>)
+        updateTimer = Timer.init(timeInterval: 1.0, target: self, selector: #selector(updateSpeed), userInfo: nil, repeats: true)
         
+        RunLoop.current.add(updateTimer!, forMode: .common)
 //        updateTimer.fire()
+        
+//        for interface in netConfig.interfaceDetails() {
+//            let detail = interface as? NSDictionary
+//            if let interfaceDetail = detail {
+//                print(interfaceDetail["name"])
+//                print(interfaceDetail["devicename"])
+//            }
+//        }
         
 //        NSArray *interfaceDetails = [netConfig interfaceDetails];
 //        if ([interfaceDetails count]) {
@@ -87,25 +97,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let interfaceDetails = netConfig.interfaceDetails()
         if let detail = interfaceDetails, detail.count > 0 {
             for (_, item) in detail.enumerated() {
+
                 if let dicItem = item as? NSDictionary {
-                    let deviceName = dicItem.object(forKey: "devicename") as! String
-                    print(deviceName)
-                    let deviceNetLoad = netload[deviceName] as? NSDictionary
-                    if let load = deviceNetLoad {
-                        print(load["deltaout"])
-                        print(load["deltain"])
+                    let interfaceName = dicItem["name"] as! String
+
+                    if interfaceName == "Wi-Fi" {
+                    
+                        let deviceName = dicItem.object(forKey: "devicename") as! String
+                        print(deviceName)
+                        let deviceNetLoad = netload[deviceName] as? NSDictionary
+                        if let load = deviceNetLoad {
+    //                        self.statusItem.button!.title = String(Double(load["deltaout"]!))
+                            let out = load["deltaout"] as? Int
+                            if let deltaOut = out {
+    //                            print(deltaOut)
+                            
+                                let button: NSStatusBarButton = self.statusItem.button!
+                                button.title = String(deltaOut)
+                            }
+                        }
+    //                        print(deviceNetLoad["deltaout"])
+    //                        print(deviceNetLoad["deltain"])
+    //                    }
+    //                    let linkSpeed: Double? = dicItem.object(forKey: "linkspeed") as? Double
+    //                    if let speed = linkSpeed, speed > 10000000 {
+    //                        print(speed)
+    //
+    //                        if let button = statusItem.button {
+    //                            button.title = String(speed)
+    //                        }
+    //                    }
                     }
-//                        print(deviceNetLoad["deltaout"])
-//                        print(deviceNetLoad["deltain"])
-//                    }
-//                    let linkSpeed: Double? = dicItem.object(forKey: "linkspeed") as? Double
-//                    if let speed = linkSpeed, speed > 10000000 {
-//                        print(speed)
-//
-//                        if let button = statusItem.button {
-//                            button.title = String(speed)
-//                        }
-//                    }
                     
                 }
             }
