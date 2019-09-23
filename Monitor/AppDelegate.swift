@@ -104,7 +104,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     if interfaceName == "Wi-Fi" {
                     
                         let deviceName = dicItem.object(forKey: "devicename") as! String
-                        print(deviceName)
+//                        print(deviceName)
                         let deviceNetLoad = netload[deviceName] as? NSDictionary
                         if let load = deviceNetLoad {
     //                        self.statusItem.button!.title = String(Double(load["deltaout"]!))
