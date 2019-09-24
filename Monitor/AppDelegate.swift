@@ -32,60 +32,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         popover.contentViewController = QuotesViewController.freshController()
         
-//        updateTimer = Timer.init(timeInterval: <#T##TimeInterval#>, target: <#T##Any#>, selector: <#T##Selector#>, userInfo: <#T##Any?#>, repeats: <#T##Bool#>)
         updateTimer = Timer.init(timeInterval: 1.0, target: self, selector: #selector(updateSpeed), userInfo: nil, repeats: true)
         
         RunLoop.current.add(updateTimer!, forMode: .common)
-//        updateTimer.fire()
-        
-//        for interface in netConfig.interfaceDetails() {
-//            let detail = interface as? NSDictionary
-//            if let interfaceDetail = detail {
-//                print(interfaceDetail["name"])
-//                print(interfaceDetail["devicename"])
-//            }
-//        }
-        
-//        NSArray *interfaceDetails = [netConfig interfaceDetails];
-//        if ([interfaceDetails count]) {
-//            NSEnumerator *detailEnum = [interfaceDetails objectEnumerator];
-//            NSDictionary *details = nil;
-//            while ((details = [detailEnum nextObject])) {
-//                // Array entry is a service/interface
-//                NSMutableDictionary *interfaceUpdateMenuItems = [NSMutableDictionary dictionary];
-//                NSString *interfaceDescription = [details objectForKey:@"name"];
-//                NSLog(@"%@", interfaceDescription);
-//                NSString *speed = nil;
-//                // Best guess if this is an active interface, default to assume it is active
-//                BOOL isActiveInterface = YES;
-//
-//                if ([details objectForKey:@"linkactive"]) {
-//                    isActiveInterface = [[details objectForKey:@"linkactive"] boolValue];
-//                }
-//
-//                if ([details objectForKey:@"pppstatus"]) {
-//                    if ([(NSNumber *)[[details objectForKey:@"pppstatus"] objectForKey:@"status"] unsignedIntValue] == PPP_IDLE) {
-//                        isActiveInterface = NO;
-//                    }
-//                }
-//
-//                // Calc speed
-//                if ([details objectForKey:@"linkspeed"] && isActiveInterface) {
-//                    if ([[details objectForKey:@"linkspeed"] doubleValue] > 1000000000) {
-//                        speed = [NSString stringWithFormat:@" %.0f %@",
-//                                    ([[details objectForKey:@"linkspeed"] doubleValue] / 1000000000),
-//                                    [localizedStrings objectForKey:kGbpsLabel]];
-//                    } else if ([[details objectForKey:@"linkspeed"] doubleValue] > 1000000) {
-//                        speed = [NSString stringWithFormat:@" %.0f %@",
-//                                    ([[details objectForKey:@"linkspeed"] doubleValue] / 1000000),
-//                                    [localizedStrings objectForKey:kMbpsLabel]];
-//                    } else {
-//                        speed = [NSString stringWithFormat:@" %@ %@",
-//                                    [bytesFormatter stringForObjectValue:
-//                                        [NSNumber numberWithDouble:([[details objectForKey:@"linkspeed"] doubleValue] / 1000)]],
-//                                    [localizedStrings objectForKey:kKbpsLabel]];
-//                    }
-//                }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -102,31 +51,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     let interfaceName = dicItem["name"] as! String
 
                     if interfaceName == "Wi-Fi" {
-                    
                         let deviceName = dicItem.object(forKey: "devicename") as! String
-//                        print(deviceName)
                         let deviceNetLoad = netload[deviceName] as? NSDictionary
-                        if let load = deviceNetLoad {
-    //                        self.statusItem.button!.title = String(Double(load["deltaout"]!))
-                            let out = load["deltaout"] as? Int
-                            if let deltaOut = out {
-    //                            print(deltaOut)
-                            
-                                let button: NSStatusBarButton = self.statusItem.button!
-                                button.title = String(deltaOut)
-                            }
+                        if let load = deviceNetLoad, let out = load["deltain"] as? Int {
+                            let button: NSStatusBarButton = self.statusItem.button!
+                            button.title = humanizeTraffic(out)
                         }
-    //                        print(deviceNetLoad["deltaout"])
-    //                        print(deviceNetLoad["deltain"])
-    //                    }
-    //                    let linkSpeed: Double? = dicItem.object(forKey: "linkspeed") as? Double
-    //                    if let speed = linkSpeed, speed > 10000000 {
-    //                        print(speed)
-    //
-    //                        if let button = statusItem.button {
-    //                            button.title = String(speed)
-    //                        }
-    //                    }
                     }
                     
                 }
@@ -142,6 +72,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("\(quoteText) — \(quoteAuthor)")
     }
 
+    func humanizeTraffic(_ trafficLoad: Int) -> String {
+        var formattedString = "0 B/s"
+        
+        if trafficLoad > 1073741824 {
+            formattedString = String(Double(trafficLoad) / 1073741824) + " GB/s"
+        } else if trafficLoad > 1048576 {
+            formattedString = String(Double(trafficLoad) / 1048576) + " MB/s"
+        } else if trafficLoad > 1024 {
+            formattedString = String(Double(trafficLoad) / 1024) + " KB/s"
+        }
+        
+        return formattedString
+    }
+    
     func constructMenu() {
         let menu = NSMenu()
         
