@@ -46,10 +46,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let interfaceDetails = netConfig.interfaceDetails()
         if let detail = interfaceDetails, detail.count > 0 {
             for (_, item) in detail.enumerated() {
-
                 if let dicItem = item as? NSDictionary {
                     let interfaceName = dicItem["name"] as! String
-
                     if interfaceName == "Wi-Fi" {
                         let deviceName = dicItem.object(forKey: "devicename") as! String
                         let deviceNetLoad = netload[deviceName] as? NSDictionary
